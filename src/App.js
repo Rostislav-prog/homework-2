@@ -1,22 +1,23 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import { MessegeList } from './messageList';
 import './App.css';
+import { Form } from './form';
 
 function App() {
+
+    const [list] = useState([]);
+    const [autor, setAutor] = useState('');
+    const [text, setText] = useState('');
+
+  useEffect(() => {
+    console.log('useeffect');
+  }, [list]);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <MessegeList  list={list}/>
+        <Form autor={autor} setAutor={setAutor} text={text} setText={setText} list={list}/>
       </header>
     </div>
   );

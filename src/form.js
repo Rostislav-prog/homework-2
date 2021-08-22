@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
 
-function Form({messageList, setMessageList}) {
+function Form({ messageList, setMessageList }) {
 
- 
-    const [message, setMessage] = useState({ autor: '', text: '' }); 
+    
+    const [message, setMessage] = useState({ autor: '', text: ''});
     const handleChangeAuthor = (e) => { setMessage({ ...message, autor: e.target.value }) }; 
     const handleChangeMassage = (e) => { setMessage({ ...message, text: e.target.value }) }; 
     const handleKlick = () => {    

@@ -11,7 +11,10 @@ function App() {
   const [messageList, setMessageList] = useState([]);
   
   useDidMountEffect(() => {
+    const t = setTimeout(() => {
       alert('Сообщение отправлено');
+    }, 500);
+    
   }, [messageList]);
 
   return (

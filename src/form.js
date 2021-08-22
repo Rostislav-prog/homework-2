@@ -1,31 +1,32 @@
-import React from "react";
+import React, { useState } from 'react';
+import './App.css';
 
+function Form({messageList, setMessageList}) {
 
-
-export const Form = ({list, autor, text, setAutor, setText}) => {
-    
-    const setAutorChenge = (e) => {
-    setAutor(e.target.value);   
+ 
+    const [message, setMessage] = useState({ autor: '', text: '' }); 
+    const handleChangeAuthor = (e) => { setMessage({ ...message, autor: e.target.value }) }; 
+    const handleChangeMassage = (e) => { setMessage({ ...message, text: e.target.value }) }; 
+    const handleKlick = () => {    
+        if (message.autor.length !== 0 && message.text.length !== 0) {
+            setMessageList([...messageList, message]);
+            setMessage({ autor: '', text: '' });
+        }
     };
 
-    const setTextChenge = (e) => {
-    setText(e.target.value);   
-    };
 
-    const hendleClick = () => {
-            list.push({ autor, text });
-        alert('Сообщение отправлено');
-     
-    };
-    
     return (
+        <div className="App">
+        <header>
+            <div className="chatInput container">
+            <input type="text" placeholder="autor" className="chatInput__author" onChange={handleChangeAuthor} value={message.autor}></input>
+            <input type="text" placeholder="text" className="chatInput__text" onChange={handleChangeMassage} value={message.text}></input>
+            <button onClick={handleKlick}>Klick</button>
+            </div>
 
-        <div>
-            <input type='text' value={autor} onChange={setAutorChenge}/>
-            <input type='text' value={text} onChange={setTextChenge} />
-                <button onClick={hendleClick}>Click</button>
-                
+        </header>
         </div>
-    )
+    );
+}
 
-};
+export default Form;

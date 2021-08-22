@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { MessegeList } from './messageList';
 import './App.css';
-import { Form } from './form';
+import Chart from './Chart';
+import Form from './Form';
+import useDidMountEffect from './UseDidMountEffect';
+
+
 
 function App() {
 
-    const [list] = useState([]);
-    const [autor, setAutor] = useState('');
-    const [text, setText] = useState('');
-
-  useEffect(() => {
-    console.log('useeffect');
-  }, [list]);
+  const [messageList, setMessageList] = useState([]);
+  
+  useDidMountEffect(() => {
+      alert('Сообщение отправлено');
+  }, [messageList]);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <MessegeList  list={list}/>
-        <Form autor={autor} setAutor={setAutor} text={text} setText={setText} list={list}/>
-      </header>
-    </div>
+    <>
+      <Chart messageList={messageList} />
+      <Form messageList={messageList} setMessageList={setMessageList} />
+    </>
   );
 }
-
+  
 export default App;

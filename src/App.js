@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Chart from './Chart';
+import ChartArray from './ChartArray';
 import Form from './Form';
 import useDidMountEffect from './UseDidMountEffect';
 
@@ -17,10 +18,11 @@ function App() {
     
   }, [messageList]);
 
-  console.log(messageList);
+  // console.log(messageList);
 
   return (
     <>
+      <ChartArray messageList={messageList} />
       <Chart messageList={messageList} />
       <Form messageList={messageList} setMessageList={setMessageList} />
     </>

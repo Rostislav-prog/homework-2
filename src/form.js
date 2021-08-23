@@ -3,7 +3,7 @@ import './App.css';
 
 function Form({ messageList, setMessageList }) {
 
-    const key = Date.now()
+    const key = Date.now();
     const [message, setMessage] = useState({ autor: '', text: '', id: key});
     const handleChangeAuthor = (e) => { setMessage({ ...message, autor: e.target.value }) }; 
     const handleChangeMassage = (e) => { setMessage({ ...message, text: e.target.value }) }; 

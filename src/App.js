@@ -17,6 +17,8 @@ function App() {
     
   }, [messageList]);
 
+  console.log(messageList);
+
   return (
     <>
       <Chart messageList={messageList} />

@@ -3,16 +3,17 @@ import './App.css';
 
 function Form({ messageList, setMessageList }) {
 
-    
-    const [message, setMessage] = useState({ autor: '', text: ''});
+    const key = Date.now()
+    const [message, setMessage] = useState({ autor: '', text: '', id: key});
     const handleChangeAuthor = (e) => { setMessage({ ...message, autor: e.target.value }) }; 
     const handleChangeMassage = (e) => { setMessage({ ...message, text: e.target.value }) }; 
     const handleKlick = () => {    
         if (message.autor.length !== 0 && message.text.length !== 0) {
             setMessageList([...messageList, message]);
-            setMessage({ autor: '', text: '' });
+            setMessage({ autor: '', text: '', id: key }); 
         }
     };
+
 
 
     return (

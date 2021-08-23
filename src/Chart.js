@@ -6,7 +6,7 @@ function Chart(props) {
         
         <div>
             {props.messageList.map((element) => {
-                return (<div key={element.text}>{element.autor} написал {element.text}</div>)
+                return (<div key={element.id}>{element.autor} написал {element.text}</div>)
             })}
             
 

@@ -1,0 +1,5 @@
+.EntryField {
+    height: 200px;
+    justify-content: space-around;
+    display: grid;
+}

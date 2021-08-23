@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import './Form.css';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
 function Form({ messageList, setMessageList }) {
 
@@ -10,19 +13,19 @@ function Form({ messageList, setMessageList }) {
     const handleKlick = () => {    
         if (message.autor.length !== 0 && message.text.length !== 0) {
             setMessageList([...messageList, message]);
-            setMessage({ autor: '', text: '', id: key }); 
+            setMessage({ autor: '', text: '', id: key });
         }
     };
-
-
 
     return (
         <div className="App">
         <header>
-            <div className="chatInput container">
-            <input type="text" placeholder="autor" className="chatInput__author" onChange={handleChangeAuthor} value={message.autor}></input>
-            <input type="text" placeholder="text" className="chatInput__text" onChange={handleChangeMassage} value={message.text}></input>
-            <button onClick={handleKlick}>Klick</button>
+            <div className="EntryField">
+                    <TextField autoFocus id="outlined-basic" label="autor" variant="outlined" type="text"  className="chatInput__author" onChange={handleChangeAuthor} value={message.autor} />
+            <TextField id="outlined-basic" label="text" variant="outlined" type="text"  className="chatInput__text" onChange={handleChangeMassage} value={message.text} />
+            <Button onClick={handleKlick} variant="contained" color="primary" disableElevation>
+            Klick
+            </Button>
             </div>
 
         </header>

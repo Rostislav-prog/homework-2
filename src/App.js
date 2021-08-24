@@ -17,12 +17,7 @@ function App() {
     const t = setTimeout(() => {
       alert('Сообщение отправлено');
     }, 500);
-
-    
-    
   }, [messageList]);
-
-  // console.log(messageList);
 
   return (
     <>

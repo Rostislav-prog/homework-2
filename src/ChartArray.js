@@ -6,16 +6,12 @@ function ChartArray({messageList}) {
         return ({ autor: element.autor, id: element.id } )
     });
 
-    console.log(chartArray);
-
     return (
         
         <div>
             {chartArray.map((element) => {
                 return (<div key={element.id}>{element.autor} {element.id}</div>)
             })}
-            
-
         </div>
     );
     

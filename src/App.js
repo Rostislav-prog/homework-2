@@ -17,13 +17,17 @@ function App() {
     const t = setTimeout(() => {
       alert('Сообщение отправлено');
     }, 500);
+        return () => {
+        clearTimeout(t);
+      };
   }, [messageList]);
 
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="sm">
       <ChartArray messageList={messageList} />
+      <Container maxWidth="sm">
+      
       <Chart messageList={messageList} />
       <Form messageList={messageList} setMessageList={setMessageList} />
       </Container>
